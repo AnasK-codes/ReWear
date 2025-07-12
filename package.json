@@ -1,0 +1,12 @@
+{
+  "name": "rewear-clothing-exchange",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm start",
+    "build": "cd frontend && npm run build",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  }
+}
