@@ -7,7 +7,7 @@ import { ArrowRight, Recycle, Users, Award, ChevronLeft, ChevronRight } from 'lu
 const Landing = () => {
   const { items, loading } = useItems();
   const [currentSlide, setCurrentSlide] = useState(0);
-  const featuredItems = items.slice(0, 6);
+  const featuredItems = Array.isArray(items) ? items.slice(0, 6) : [];
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % Math.max(1, Math.ceil(featuredItems.length / 3)));

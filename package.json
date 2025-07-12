@@ -8,5 +8,8 @@
     "dev:backend": "cd backend && npm start",
     "build": "cd frontend && npm run build",
     "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "dependencies": {
+    "mongoose": "^8.16.3"
   }
 }

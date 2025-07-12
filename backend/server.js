@@ -1,7 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import dotenv from 'dotenv';
+
 
 // Import routes
 import authRoutes from './routes/auth.js';
@@ -10,7 +12,7 @@ import userRoutes from './routes/users.js';
 import adminRoutes from './routes/admin.js';
 
 // Load environment variables
-dotenv.config();
+
 
 const app = express();
 
@@ -51,7 +53,7 @@ app.use('*', (req, res) => {
 // Database connection
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/rewear');
+    const conn = await mongoose.connect(process.env.MONGODB_URI|| 'mongodb://localhost:27017/rewear');
     console.log(`MongoDB Connected: ${conn.connection.host}`);
   } catch (error) {
     console.error('Database connection error:', error);

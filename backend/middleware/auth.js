@@ -82,7 +82,7 @@ export const optionalAuth = async (req, res, next) => {
 
 // Generate JWT token
 export const generateToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, {
+  return jwt.sign({ id }, "9bPj7Zx!a@4LrT$w3P0NvH^cY8Xe#2UbGqK1LmDs", {
     expiresIn: process.env.JWT_EXPIRE || '30d'
   });
 };
