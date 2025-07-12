@@ -29,6 +29,7 @@ export const protect = async (req, res, next) => {
       next();
     } catch (error) {
       return res.status(401).json({ message: 'Not authorized, token failed' });
+      
     }
   } catch (error) {
     console.error('Auth middleware error:', error);
@@ -82,7 +83,7 @@ export const optionalAuth = async (req, res, next) => {
 
 // Generate JWT token
 export const generateToken = (id) => {
-  return jwt.sign({ id }, "9bPj7Zx!a@4LrT$w3P0NvH^cY8Xe#2UbGqK1LmDs", {
+  return jwt.sign({ id }, process.env.JWT_SECRET || "9bPj7Zx!a@4LrT$w3P0NvH^cY8Xe#2UbGqK1LmDs", {
     expiresIn: process.env.JWT_EXPIRE || '30d'
   });
 };

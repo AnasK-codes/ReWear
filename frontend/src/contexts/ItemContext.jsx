@@ -20,7 +20,7 @@ export const ItemProvider = ({ children }) => {
       const response = await fetch('http://localhost:5000/api/items');
       if (response.ok) {
         const data = await response.json();
-        setItems(data);
+        setItems(data.items || []);
       }
     } catch (error) {
       console.error('Failed to fetch items:', error);
@@ -55,7 +55,7 @@ export const ItemProvider = ({ children }) => {
 
       if (response.ok) {
         const newItem = await response.json();
-        setItems(prev => [newItem, ...prev]);
+        setItems(prev => [newItem.item, ...prev]);
         return { success: true, item: newItem };
       } else {
         const error = await response.json();
